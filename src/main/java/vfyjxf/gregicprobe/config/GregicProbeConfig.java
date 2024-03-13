@@ -17,12 +17,13 @@ public class GregicProbeConfig {
 
     public static boolean displayItemOutputs = true;
     public static boolean displayFluidOutputs = true;
-    public static boolean displayBukkit = true;
+    public static boolean displayBukkit = false;
     public static boolean displayRecipeEut = true;
     public static boolean displaySecondProgress = true;
     public static boolean displayEnergyThousandths = true;
     public static boolean displayItemName = true;
     public static boolean displayFluidName = true;
+    public static boolean InvertOutputDisplayStyle = false;
 
     public static int borderColorProgress = 0x00000000;
     public static int backgroundColorProgress = 0;
@@ -46,6 +47,7 @@ public class GregicProbeConfig {
             displayEnergyThousandths = config.getBoolean("DisplayEnergyThousandths", "general", true, "If true, only thousandths of digits are displayed");
             displayItemName = config.getBoolean("ShowItemName", "general", true, "If true, the name of the item will be displayed");
             displayFluidName = config.getBoolean("ShowFluidName", "general", true, "If true, the name of the fluid will be displayed");
+            InvertOutputDisplayStyle = config.getBoolean("InvertOutputDisplayStyle", "general", false, "If true, the output display style will be inverted");
         }
         //colour settings
         {

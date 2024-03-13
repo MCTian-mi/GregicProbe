@@ -5,12 +5,15 @@ import gregtech.api.capability.IWorkable;
 import gregtech.api.capability.impl.AbstractRecipeLogic;
 import gregtech.integration.theoneprobe.provider.CapabilityInfoProvider;
 import mcjty.theoneprobe.api.ElementAlignment;
+import mcjty.theoneprobe.api.IProbeHitData;
 import mcjty.theoneprobe.api.IProbeInfo;
 import mcjty.theoneprobe.api.TextStyleClass;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import vfyjxf.gregicprobe.config.GregicProbeConfig;
 
@@ -25,7 +28,7 @@ public class RecipeItemOutputInfoProvider extends CapabilityInfoProvider<IWorkab
     }
 
     @Override
-    protected void addProbeInfo(IWorkable capability, IProbeInfo probeInfo, TileEntity tileEntity, EnumFacing enumFacing) {
+    protected void addProbeInfo(IWorkable capability, IProbeInfo probeInfo, EntityPlayer entityPlayer, TileEntity tileEntity, IProbeHitData iProbeHitData) {
         if (capability.getProgress() > 0 && capability instanceof AbstractRecipeLogic) {
             IProbeInfo horizontalPane = probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
             List<ItemStack> itemOutputs = new ArrayList<>(
@@ -36,12 +39,15 @@ public class RecipeItemOutputInfoProvider extends CapabilityInfoProvider<IWorkab
             );
 
             if (!itemOutputs.isEmpty()) {
-                horizontalPane.text(TextStyleClass.INFO + "{*gregicprobe:top.item.outputs*} ");
+                horizontalPane.text(TextStyleClass.INFO + "{*gregicprobe.top.item.outputs*} ");;
                 for (ItemStack itemOutput : itemOutputs) {
                     if (itemOutput != null) {
-                        horizontalPane.item(itemOutput);
-                        if (GregicProbeConfig.displayItemName && itemOutputs.size() <= 2) {
-                            horizontalPane.itemLabel(itemOutput);
+                        IProbeInfo horizontal = probeInfo.horizontal(probeInfo.defaultLayoutStyle().alignment(ElementAlignment.ALIGN_CENTER));
+                        if (entityPlayer.isSneaking() ^ GregicProbeConfig.InvertOutputDisplayStyle) {
+                            horizontal.itemLabel(itemOutput);
+                        } else {
+                            horizontal.item(itemOutput);
+                            horizontal.itemLabel(itemOutput);
                         }
                     }
                 }
