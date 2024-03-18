@@ -62,5 +62,6 @@ dependencies {
     implementation rfg.deobf("curse.maven:the-one-probe-245211:2667280")
     implementation rfg.deobf("curse.maven:gregtech-ce-unofficial-557242:5121638")
     implementation rfg.deobf("curse.maven:had-enough-items-557549:5154770")
+    compileOnly rfg.deobf("curse.maven:top-addons-247111:2887479")
     runtimeOnly rfg.deobf("curse.maven:codechicken-lib-1-8-242818:2779848")
 }

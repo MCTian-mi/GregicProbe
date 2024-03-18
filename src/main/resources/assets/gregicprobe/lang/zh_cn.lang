@@ -1,2 +1,2 @@
-gregicprobe.top.item.outputs=物品输出:
-gregicprobe.top.fluid.outputs=流体输出:
+gregicprobe.top.output.item=物品输出:
+gregicprobe.top.output.fluid=流体输出:

@@ -12,11 +12,8 @@ public class GregicProbeCompatibility {
 
     public static void registerCompatibility() {
         ITheOneProbe oneProbe = TheOneProbe.theOneProbeImp;
-        if (GregicProbeConfig.displayItemOutputs) {
-            oneProbe.registerProvider(new RecipeItemOutputInfoProvider());
-        }
-        if (GregicProbeConfig.displayFluidOutputs) {
-            oneProbe.registerProvider(new RecipeFluidOutputInfoProvider());
+        if (GregicProbeConfig.displayOutputs) {
+            oneProbe.registerProvider(new RecipeOutputInfoProvider());
         }
     }
 }

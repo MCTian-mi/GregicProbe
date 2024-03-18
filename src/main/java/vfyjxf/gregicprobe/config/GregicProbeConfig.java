@@ -15,15 +15,15 @@ public class GregicProbeConfig {
 
     public static Configuration config;
 
+    public static boolean displayOutputs = true;
     public static boolean displayItemOutputs = true;
     public static boolean displayFluidOutputs = true;
-    public static boolean displayBukkit = false;
     public static boolean displayRecipeEut = true;
     public static boolean displaySecondProgress = true;
     public static boolean displayEnergyThousandths = true;
     public static boolean displayItemName = true;
     public static boolean displayFluidName = true;
-    public static boolean InvertOutputDisplayStyle = false;
+    public static boolean allowCompactDisplay = true;
 
     public static int borderColorProgress = 0x00000000;
     public static int backgroundColorProgress = 0;
@@ -40,6 +40,7 @@ public class GregicProbeConfig {
         config.load();
         //general
         {
+            displayOutputs = config.getBoolean("DisplayOutputs", "general", true, "If true, the outputs of the current recipe will be displayed");
             displayItemOutputs = config.getBoolean("DisplayItemOutputs", "general", true, "If true, the item outputs of the current recipe will be displayed");
             displayFluidOutputs = config.getBoolean("DisplayFluidOutputs", "general", true, "If true, the fluid outputs of the current recipe will be displayed");
             displayRecipeEut = config.getBoolean("DisplayRecipeEut", "general", true, "If true, the EUt of the current recipe will be displayed");
@@ -47,7 +48,7 @@ public class GregicProbeConfig {
             displayEnergyThousandths = config.getBoolean("DisplayEnergyThousandths", "general", true, "If true, only thousandths of digits are displayed");
             displayItemName = config.getBoolean("ShowItemName", "general", true, "If true, the name of the item will be displayed");
             displayFluidName = config.getBoolean("ShowFluidName", "general", true, "If true, the name of the fluid will be displayed");
-            InvertOutputDisplayStyle = config.getBoolean("InvertOutputDisplayStyle", "general", false, "If true, the output display style will be inverted");
+            allowCompactDisplay = config.getBoolean("AllowCompactDisplay", "general", true, "If false, the output display style will always show in detail");
         }
         //colour settings
         {

@@ -1,2 +1,2 @@
-gregicprobe.top.item.outputs=Item Output:
-gregicprobe.top.fluid.outputs=Fluid Output:
+gregicprobe.top.output.item=Item Output:
+gregicprobe.top.output.fluid=Fluid Output:
