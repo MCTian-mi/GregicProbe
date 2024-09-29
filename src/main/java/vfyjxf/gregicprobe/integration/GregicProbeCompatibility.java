@@ -3,7 +3,9 @@ package vfyjxf.gregicprobe.integration;
 import mcjty.theoneprobe.TheOneProbe;
 import mcjty.theoneprobe.api.ITheOneProbe;
 import vfyjxf.gregicprobe.config.GregicProbeConfig;
-import vfyjxf.gregicprobe.integration.gregtech.*;
+import vfyjxf.gregicprobe.integration.gregtech.CableInfoProvider;
+import vfyjxf.gregicprobe.integration.gregtech.RecipeFluidOutputInfoProvider;
+import vfyjxf.gregicprobe.integration.gregtech.RecipeItemOutputInfoProvider;
 
 public class GregicProbeCompatibility {
 
@@ -17,6 +19,9 @@ public class GregicProbeCompatibility {
         }
         if (GregicProbeConfig.displayFluidOutputs) {
             oneProbe.registerProvider(new RecipeFluidOutputInfoProvider());
+        }
+        if (GregicProbeConfig.displayItemOutputs) {
+            oneProbe.registerProvider(new CableInfoProvider());
         }
     }
 }

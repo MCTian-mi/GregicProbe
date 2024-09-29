@@ -17,6 +17,7 @@ public class GregicProbeConfig {
 
     public static boolean displayItemOutputs = true;
     public static boolean displayFluidOutputs = true;
+    public static boolean displayCableInfos = true;
     public static boolean displayBukkit = true;
     public static boolean displayItemName = true;
     public static boolean displayFluidName = true;
@@ -30,6 +31,7 @@ public class GregicProbeConfig {
         {
             displayItemOutputs = config.getBoolean("DisplayItemOutputs", "general", true, "If true, the item outputs of the current recipe will be displayed");
             displayFluidOutputs = config.getBoolean("DisplayFluidOutputs", "general", true, "If true, the fluid outputs of the current recipe will be displayed");
+            displayCableInfos = config.getBoolean("DisplayCableInfos", "general", true, "If true, the avg. amps/volts of the cable will be displayed");
             displayItemName = config.getBoolean("ShowItemName", "general", true, "If true, the name of the item will be displayed");
             displayFluidName = config.getBoolean("ShowFluidName", "general", true, "If true, the name of the fluid will be displayed");
             displayFluidQuantities = config.getBoolean("ShowFluidQuantities", "general", true, "If true, The quantity of the fluid will be displayed below the fluid, instead of the right, this is useful for removing clutter.");
